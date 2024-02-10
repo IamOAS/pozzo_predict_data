@@ -23,10 +23,13 @@ def predict():
         input_scaled = scaler.transform(input_df)
 
         # Make prediction
-        predictions = model.predict(input_scaled)
+        prediction = model.predict(input_scaled)[0]
+
+        # Convert the prediction to a standard Python float
+        prediction = float(prediction)
 
         # Return the prediction as JSON
-        return jsonify({'prediction': predictions.tolist()})
+        return jsonify({'prediction': prediction})
     except Exception as e:
         return jsonify({'error': str(e)})
 
