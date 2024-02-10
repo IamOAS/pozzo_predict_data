@@ -1,0 +1,5 @@
+# .gitignore
+__pycache__/
+*.pyc
+.DS_Store
+# Add other files or directories to ignore
